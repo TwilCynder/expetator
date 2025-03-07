@@ -1,0 +1,29 @@
+[plugins.csv]
+output_path = "alumet-output.csv"
+force_flush = true
+append_unit_to_metric_name = true
+use_unit_display_name = true
+csv_delimiter = ";"
+
+[plugins.mojitos]
+poll_interval = "1s"
+arguments = "-u -c -M Dirty,Mapped,PageTables -p cpu_cycles,instructions,branch_instructions,cache_references,cache_misses,context_switches,page_faults -d X -m"
+
+[plugins.relay-client]
+enabled = false
+client_name = "pcalaatabi" 
+relay_server = "[::1]:50051"
+buffer_max_length = 4096
+buffer_timeout = "30s"
+
+[plugins.relay-client.retry]
+max_times = 8
+initial_delay = "500ms" 
+max_delay = "4s"
+
+[plugins.relay-server]
+enabled = false
+address = "[::]:50051"
+
+[plugins.socket-control]
+socket_path = "alumet-control.sock"
