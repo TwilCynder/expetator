@@ -16,7 +16,7 @@ if __name__ == '__main__':
 or
 
 %s list file.list
-""")
+""" % (sys.argv[0], sys.argv[0]))
         sys.exit(0)
 
     filename = sys.argv[2]
