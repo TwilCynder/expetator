@@ -19,7 +19,6 @@ class AlumetBench :
     def build(self, executor):
         os.makedirs(PREFIX_TEMP, exist_ok=True)
 
-
         self.alumet_path = os.environ.get("ALUMET_PATH") or DEFAULT_PATH
         if not os.path.isfile(self.alumet_path):
             basedir = os.path.dirname(os.path.abspath(__file__))
@@ -49,7 +48,7 @@ class AlumetBench :
 
         basedir = os.path.dirname(os.path.abspath(__file__))
 
-        pid = executor.local(self.alumet_path + "--plugins mojitos,csv --config %s/alumet/alumet-config.toml --config-override plugins.mojitos.poll_interval=\"%s\" --config-override plugins.csv.output_path=\"%s/alumet-output.csv\" & echo $!" % (basedir, freq, PREFIX_TEMP))
+        pid = executor.local(executor.sudo + " " + self.alumet_path + ' --plugins mojitos,csv --config %s/alumet/alumet-config.toml --config-override plugins.mojitos.poll_interval=\\"%s\\" --config-override plugins.csv.output_path=\\"%s/alumet-output.csv\\" & echo $!' % (basedir, freq, PREFIX_TEMP))
         print("Pid", pid)
         value, name = self.bench.run(initial_bench, params, executor)
         os.kill(int(pid), signal.SIGTERM)

@@ -19,7 +19,7 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     python_requires='>=3.6',
-    package_data={'': ['benchmarks/genericbench/*', 'benchmarks/*tpr', 'benchmarks/*.c', 'benchmarks/*.tgz', 'benchmarks/*.cu',
+    package_data={'': ['benchmarks/genericbench/*', 'benchmarks/*tpr', 'benchmarks/*.c', 'benchmarks/*.tgz', 'benchmarks/*.cu', 'benchmarks/alumet/*.sh',
                        'monitors/*.bz2', 'monitors/*.diff',
                        'leverages/*.[ch]', 'leverages/*.sh', 'leverages/*_mak']},
     include_package_data=True,
