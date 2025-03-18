@@ -7,7 +7,7 @@ csv_delimiter = ";"
 
 [plugins.mojitos]
 poll_interval = "1s"
-arguments = "-u -c -M Dirty,Mapped,PageTables -p cpu_cycles,instructions,branch_instructions,cache_references,cache_misses,context_switches,page_faults -d X -m"
+arguments = "-u -c"
 
 [plugins.relay-client]
 enabled = false

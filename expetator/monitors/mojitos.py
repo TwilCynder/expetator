@@ -76,10 +76,10 @@ class Mojitos:
             executor.hosts('sudo-g5k modprobe msr', root=True)
             if read_int('/proc/sys/kernel/perf_event_paranoid') != 0:
                 executor.hosts("sh -c 'echo 0 >/proc/sys/kernel/perf_event_paranoid'", root=True)
-            mode = os.stat('/sys/class/powercap/intel-rapl/intel-rapl:0/constraint_0_max_power_uw')
-            if not mode.st_mode & stat.S_IWUSR:
-                executor.hosts("chmod a+rw /sys/class/powercap/intel-rapl/*/*", root=True)
-                executor.hosts("chmod a+rw /sys/class/powercap/intel-rapl/*/*/*", root=True)
+            #mode = os.stat('/sys/class/powercap/intel-rapl/intel-rapl:0/constraint_0_max_power_uw')
+            #if not mode.st_mode & stat.S_IWUSR:
+            #    executor.hosts("chmod a+rw /sys/class/powercap/intel-rapl/*/*", root=True)
+            #    executor.hosts("chmod a+rw /sys/class/powercap/intel-rapl/*/*/*", root=True)
 
         self.executor = executor
 
